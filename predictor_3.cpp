@@ -81,7 +81,7 @@ void double_bit(string pc,string temp_word,int Taken){
 
 
 
-
+int count=0;
 int main(){
 
 // take input from the file
@@ -94,6 +94,8 @@ int main(){
 
     while(getline(Myfile,text)){
 
+      //   cout<<"Count: "<<count<<endl;
+      //   count++;
         if(!text.empty()){
 
          stringstream ss(text);
@@ -105,9 +107,12 @@ int main(){
                 flag=1-flag;
                 pc=temp_word;
             }
-            if(temp_word.find("pc")!=string::npos){
+            if(temp_word=="pc"){
                is_branch=1;
             }
+            // if(temp_word.find("pc")!=string::npos && temp_word!="auipc"){
+            //    is_branch=1;
+            // }
             if(temp_word.find('+')!=string::npos){
                is_pos=1;
             }
@@ -118,8 +123,9 @@ int main(){
          
         if(is_branch){
        
-                // cout<<"tempword: "<<temp_word<<endl;
+               //  cout<<temp_word<<endl;
                 label=stoi(temp_word);
+              
                 total++;
 
                 if(label==4 && is_pos==1){
@@ -160,10 +166,10 @@ int main(){
 
     }
 
-float accuracy_Always_taken= always_taken*100/total;
-float accuracy_Always_Not_Taken= always_Not_taken*100/total;
-float accuracy1= hit_1*100/(hit_1+miss_1);
-float accuracy2= hit_2*100/(hit_2+miss_2);
+float accuracy_Always_taken= always_taken*100.0/total;
+float accuracy_Always_Not_Taken= always_Not_taken*100.0/total;
+float accuracy1= hit_1*100.0/(hit_1+miss_1);
+float accuracy2= hit_2*100.0/(hit_2+miss_2);
 
 cout<<"Accuracy(Always Taken): "<<accuracy_Always_taken<<" %"<<endl;
 cout<<"Accuracy(Always Not Taken): "<<accuracy_Always_Not_Taken<<" %"<<endl;
