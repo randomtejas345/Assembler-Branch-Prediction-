@@ -8,4 +8,4 @@ code5.asm = qsort_test_Lab
 code6.asm = Fact_test_Lab_test_Lab
 code7.asm = Bubbel_test_Lab
 code8.asm = Sample_test_Lab
-yet i only added 5 6 3 8 files to read in github
+yet i have only added 3 5 6 8 files to read in github
